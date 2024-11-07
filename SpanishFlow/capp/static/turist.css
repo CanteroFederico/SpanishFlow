@@ -1,0 +1,50 @@
+/* 
+#59c0f2 light blue
+#000127 Dark dark blue
+#206ad9  blue
+#00247d Light dark blue
+#9e6119 Golden brown
+#d18828 Golden tan 
+*/
+
+.section_turist_choice {
+background-color: #206ad9;
+}
+.choice {
+display: -ms-flexbox;
+display: flex;
+-ms-flex-wrap: wrap;
+flex-wrap: wrap;
+align-items: start;
+background: #206ad9;
+}
+.choice .box {
+flex: 1;
+border-radius: 30px;
+margin: 20px 10px;
+padding: 15px 20px;
+text-align: center;
+align-items: center;
+justify-content: center;
+background-color: #00247d;
+color: #fff;
+height: 190px;
+margin: 20px 15px;
+position: relative;
+cursor: pointer;
+}
+.choice .text-top1{
+position: absolute;
+bottom: 10px;
+left: 50%;
+transform: translate( -50%, -50%)
+}
+.choice .text-top2{
+position: absolute;
+bottom: 50px;
+left: 50%;
+transform: translate( -50%, -50%)
+}
+.choice i{
+ margin: 10px 10px;
+}
