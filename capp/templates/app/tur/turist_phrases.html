@@ -1,0 +1,57 @@
+{% extends "/app/structure_app.html" %}
+{% block header_text %}Turist{% endblock %}
+{% block header_link %}{{url_for('spanishflow_app.turist_home')}}{% endblock %}
+{% block content %}
+
+<section class="section_student_choice">
+    <section class="student_choice">
+        <div class="cards">
+            <div class="boxa">
+                <div class="phrase">
+                    <div class="eng">
+                        <h2>English:</h2>
+                        <p>Hey Bro!</p>
+                    </div>
+                    <div class="esp">
+                        <h2>Spanish:</h2>
+                        <p>Oye Tio!!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="boxa">
+                <div class="pic" onclick="this.classList.toggle('flipped')">
+                    <div class="pic-inner">
+                      <div class="pic-front">
+                        <img src="{{url_for('static', filename='items/fotos/hello.jpg')}}" alt="Hello man">
+                      </div>
+                      <div class="pic-back">
+                        <h2>Your Title</h2>
+                        <p>Your descriptive text goes here.</p>
+                      </div>
+                    </div>
+                </div>   
+            </div>
+                       
+        </div>
+        
+    </section>
+</section>
+<section class="section_btn_main">
+    <section class="btn_main">
+        <div class="btn">
+            <div class="boxb">
+                <h3>Previous</h3>
+            </div>
+            <div class="boxb">
+                <h3>Shuffle</h3>
+            </div>
+            <div class="boxb">
+                <h3>Next</h3>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+
+{% endblock content %}
