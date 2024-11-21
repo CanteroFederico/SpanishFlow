@@ -1,0 +1,119 @@
+{% extends "layout.html" %} {% block content %}
+
+<!-- Header -->
+<section class="section_header_light_talk_app">
+  <div class="container">
+    <div class="header_light_talk_app">
+      <div class="box">
+        <h1 style="font-size: 55px">
+          <span class="text-logo"> Light Talk App</span>
+        </h1>
+        <p style="text-align: left">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat
+          dolores quos asperiores repellendus facilis cum illo aperiam odit
+          doloremque nostrum. Totam excepturi labore voluptatibus iusto sapiente
+          quisquam consectetur optio magnam voluptates omnis vel officia alias
+          distinctio quas laborum reiciendis ratione inventore veniam,
+          cupiditate doloribus dolore, eius natus a. Magni inventore
+          consequuntur voluptas reprehenderit perferendis! Molestias aspernatur
+          rem autem aut temporibus.
+        </p>
+        <div class="container_buttons_links_header_light_talk_app">
+          <div class="btn">
+            <a
+              href="{{url_for('business.business_home')}}"
+              class="btn btn-primary btn-lg mr-2"
+              ,
+              style="background-color: #007bff"
+              >Business</a
+            >
+          </div>
+          <!-- <div class="btn">
+            <a
+              href="#"
+              class="btn btn-primary btn-lg mr-2"
+              ,
+              style="background-color: #007bff"
+              >Tus frases</a
+            >
+          </div> -->
+        </div>
+      </div>
+      <div class="box">
+        <img
+          src="{{url_for('static', filename='icons/light_talk_app.svg')}}"
+          width="325"
+          height="325"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- light_talk_app_new_entry_main -->
+<section class="section_light_talk_app_new_entry_main">
+  <div class="container">
+    <!-- <div class="light_talk_app_new_entry_main" style="display: block">
+      <br />
+      <h3 style="text-align: center">
+      </h3>
+    </div> -->
+
+    <div class="light_talk_app_new_entry_main">
+      <div class="box">
+        <div class="h1 mb-3" style="text-align: center">
+          <i class="fa-solid fa-pen-nib"></i>
+        </div>
+        <h3>Añade una frase</h3>
+        <p>
+          Aquí puedes <strong>añadir</strong> una frase a tu base de datos para
+          personalizar tu aprendizaje del castellano.
+        </p>
+        <div class="section_container_buttons_light_talk_app_new_entry_main">
+          <a
+            class="btn_light_talk_app_new_entry_main"
+            href="{{url_for('light_talk_app.add_sentence')}}"
+            >Añadir</a
+          >
+        </div>
+      </div>
+      <div class="box">
+        <div class="h1 mb-3" style="text-align: center">
+          <i class="fa-solid fa-check-double"></i>
+        </div>
+        <h3>Selecciona una frase</h3>
+        <p>
+          Aquí puedes <strong>seleccionar</strong> una frase de tu base de datos
+          para seguir mejorando en tu aprendizaje del castellano.
+        </p>
+        <div class="section_container_buttons_light_talk_app_new_entry_main">
+          <a
+            class="btn_light_talk_app_new_entry_main"
+            href="{{url_for('light_talk_app.select_sentence')}}"
+            >Seleccionar</a
+          >
+        </div>
+      </div>
+      <div class="box">
+        <div class="h1 mb-3" style="text-align: center">
+          <i class="fa-solid fa-square-poll-vertical"></i>
+        </div>
+        <h3>Tus frases y estadísticas</h3>
+        <p>
+          Aquí puedes <strong>ver y modificar</strong> tus frases. También puede
+          <strong>ver</strong> tus resultados y estadísticas.
+        </p>
+        <div class="section_container_buttons_light_talk_app_new_entry_main">
+          <a
+            class="btn_light_talk_app_new_entry_main"
+            href="#"
+            >Tus frases</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

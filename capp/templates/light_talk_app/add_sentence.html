@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="new_entry">
+  <div class="container">
+      <div class="box">
+
+      </div>
+      <div class="box">   
+        <div class="h1 mb-3" style="text-align: center;">
+          <i class="fa-solid fa-pen-nib"></i>
+        </div>
+        <h3>Añade una frase</h3>
+        <p>
+            Por favor, <strong>añade</strong> una frase a tu base de datos para
+            personalizar tu aprendizaje del castellano.
+        </p>
+          <form method="POST" action="">
+              {{ form.csrf_token }}
+              <fieldset class="form-group">
+
+                <div class="form-group">
+                    {{ form.incorrect_sentence.label(class="form-control-label") }}
+                    {% if form.incorrect_sentence.errors %}
+                        {{ form.incorrect_sentence(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.incorrect_sentence.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.incorrect_sentence(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.correct_sentence_one.label(class="form-control-label") }}
+                  {% if form.correct_sentence_one.errors %}
+                      {{ form.correct_sentence_one(class="form-control form-control-lg is-invalid") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.correct_sentence_one.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.correct_sentence_one(class="form-control form-control-lg") }}
+                  {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.correct_sentence_two.label(class="form-control-label") }}
+                    {% if form.correct_sentence_two.errors %}
+                        {{ form.correct_sentence_two(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.correct_sentence_two.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.correct_sentence_two(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.correct_sentence_three.label(class="form-control-label") }}
+                    {% if form.correct_sentence_three.errors %}
+                        {{ form.correct_sentence_three(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.correct_sentence_three.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.correct_sentence_three(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                
+                <div class="form-group">
+                    {{ form.objective.label(class="form-control-label") }}
+                    {% if form.objective.errors %}
+                        {{ form.objective(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.objective.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.objective(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.source.label(class="form-control-label") }}
+                  {% if form.source.errors %}
+                      {{ form.source(class="form-control form-control-lg is-invalid") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.source.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.source(class="form-control form-control-lg") }}
+                  {% endif %}
+                </div>
+
+              </fieldset>
+              </br>
+              <div class="form-group">
+                {{ form.submit(class="btn_light_talk_app_new_entry_main") }}
+              </div>
+          </form>
+      </div>
+      <div class="box">
+
+      </div>
+  </div>
+</section> 
+
+        
+{% endblock content %}

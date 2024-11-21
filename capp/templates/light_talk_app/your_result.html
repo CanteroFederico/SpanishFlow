@@ -1,0 +1,393 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="new_entry">
+  <div class="container">
+      <div class="box">
+
+      </div>
+      <div class="box">   
+        <div class="h1 mb-3" style="text-align: center;">
+            <i class="fa-solid fa-check-double"></i>
+        </div>
+        <h3>Este es tu resultado</h3>
+            {% if form1==1 and form2==0 and form3==0 %}
+            <form method="POST" action="">
+                {{ form.csrf_token }}
+                <fieldset class="form-group">
+  
+                  <div class="form-group">
+                      {{ form.incorrect_sentence.label(class="form-control-label") }}
+                      {% if form.incorrect_sentence.errors %}
+                          {{ form.incorrect_sentence(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.incorrect_sentence.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.incorrect_sentence(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.correct_sentence_one.label(class="form-control-label") }}
+                    {% if form.correct_sentence_one.errors %}
+                        {{ form.correct_sentence_one(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.correct_sentence_one.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.correct_sentence_one(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.your_sentence.label(class="form-control-label") }}
+                    {% if form.your_sentence.errors %}
+                        {{ form.your_sentence(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.your_sentence.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.your_sentence(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.result_string.label(class="form-control-label") }}
+                    {% if form.result_string.errors %}
+                        {{ form.result_string(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.result_string.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.result_string(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                      {{ form.objective.label(class="form-control-label") }}
+                      {% if form.objective.errors %}
+                          {{ form.objective(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.objective.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.objective(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.source.label(class="form-control-label") }}
+                    {% if form.source.errors %}
+                        {{ form.source(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.source.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.source(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                </fieldset>
+                </br>
+                <div class="section_container_buttons_light_talk_app_new_entry_main">
+                  <a
+                      class="btn_light_talk_app_new_entry_main"
+                      href="{{url_for('light_talk_app.add_sentence')}}"
+                      >Añadir</a
+                  >
+                  <a
+                    class="btn_light_talk_app_new_entry_main"
+                    href="{{url_for('light_talk_app.select_sentence')}}"
+                    >Seleccionar</a
+                  >
+                  <a
+                      class="btn_light_talk_app_new_entry_main"
+                      href="#"
+                      >Tus frases</a
+                  >
+                </div>
+            </form>
+            {% elif form1==0 and form2==1 and form3==0 %}
+            <form method="POST" action="">
+                {{ form.csrf_token }}
+                <fieldset class="form-group">
+  
+                  <div class="form-group">
+                      {{ form.incorrect_sentence.label(class="form-control-label") }}
+                      {% if form.incorrect_sentence.errors %}
+                          {{ form.incorrect_sentence(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.incorrect_sentence.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.incorrect_sentence(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.correct_sentence_one.label(class="form-control-label") }}
+                    {% if form.correct_sentence_one.errors %}
+                        {{ form.correct_sentence_one(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.correct_sentence_one.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.correct_sentence_one(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+
+                  <div class="form-group">
+                    {{ form.correct_sentence_two.label(class="form-control-label") }}
+                    {% if form.correct_sentence_two.errors %}
+                        {{ form.correct_sentence_two(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.correct_sentence_two.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.correct_sentence_two(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.your_sentence.label(class="form-control-label") }}
+                    {% if form.your_sentence.errors %}
+                        {{ form.your_sentence(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.your_sentence.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.your_sentence(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.result_string.label(class="form-control-label") }}
+                    {% if form.result_string.errors %}
+                        {{ form.result_string(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.result_string.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.result_string(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                      {{ form.objective.label(class="form-control-label") }}
+                      {% if form.objective.errors %}
+                          {{ form.objective(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.objective.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.objective(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.source.label(class="form-control-label") }}
+                    {% if form.source.errors %}
+                        {{ form.source(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.source.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.source(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                </fieldset>
+                </br>
+                <div class="section_container_buttons_light_talk_app_new_entry_main">
+                  <a
+                      class="btn_light_talk_app_new_entry_main"
+                      href="{{url_for('light_talk_app.add_sentence')}}"
+                      >Añadir</a
+                  >
+                  <a
+                    class="btn_light_talk_app_new_entry_main"
+                    href="{{url_for('light_talk_app.select_sentence')}}"
+                    >Seleccionar</a
+                  >
+                  <a
+                      class="btn_light_talk_app_new_entry_main"
+                      href="#"
+                      >Tus frases</a
+                  >
+                </div>
+            </form>
+            {% else %}
+            <form method="POST" action="">
+                {{ form.csrf_token }}
+                <fieldset class="form-group">
+  
+                  <div class="form-group">
+                      {{ form.incorrect_sentence.label(class="form-control-label") }}
+                      {% if form.incorrect_sentence.errors %}
+                          {{ form.incorrect_sentence(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.incorrect_sentence.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.incorrect_sentence(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.correct_sentence_one.label(class="form-control-label") }}
+                    {% if form.correct_sentence_one.errors %}
+                        {{ form.correct_sentence_one(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.correct_sentence_one.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.correct_sentence_one(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+
+                  <div class="form-group">
+                    {{ form.correct_sentence_two.label(class="form-control-label") }}
+                    {% if form.correct_sentence_two.errors %}
+                        {{ form.correct_sentence_two(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.correct_sentence_two.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.correct_sentence_two(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+
+                  <div class="form-group">
+                    {{ form.correct_sentence_three.label(class="form-control-label") }}
+                    {% if form.correct_sentence_three.errors %}
+                        {{ form.correct_sentence_three(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.correct_sentence_three.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.correct_sentence_three(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.your_sentence.label(class="form-control-label") }}
+                    {% if form.your_sentence.errors %}
+                        {{ form.your_sentence(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.your_sentence.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.your_sentence(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.result_string.label(class="form-control-label") }}
+                    {% if form.result_string.errors %}
+                        {{ form.result_string(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.result_string.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.result_string(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                      {{ form.objective.label(class="form-control-label") }}
+                      {% if form.objective.errors %}
+                          {{ form.objective(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.objective.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.objective(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+  
+                  <div class="form-group">
+                    {{ form.source.label(class="form-control-label") }}
+                    {% if form.source.errors %}
+                        {{ form.source(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.source.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.source(class="form-control form-control-lg") }}
+                    {% endif %}
+                  </div>
+  
+                </fieldset>
+                </br>
+                <div class="section_container_buttons_light_talk_app_new_entry_main">
+                  <a
+                      class="btn_light_talk_app_new_entry_main"
+                      href="{{url_for('light_talk_app.add_sentence')}}"
+                      >Añadir</a
+                  >
+                  <a
+                    class="btn_light_talk_app_new_entry_main"
+                    href="{{url_for('light_talk_app.select_sentence')}}"
+                    >Seleccionar</a
+                  >
+                  <a
+                      class="btn_light_talk_app_new_entry_main"
+                      href="#"
+                      >Tus frases</a
+                  >
+                </div>
+            </form> 
+            {% endif %}        
+          
+      </div>
+      <div class="box">
+
+      </div>
+  </div>
+</section> 
+
+        
+{% endblock content %}

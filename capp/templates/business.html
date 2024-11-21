@@ -1,0 +1,88 @@
+{% extends "layout.html" %} {% block content %}
+
+<!-- Header -->
+<section class="section_header_business">
+  <div class="container">
+    <div class="header">
+      <div class="box">
+        <h1 style="font-size: 55px">
+          <span class="text-logo"> Modelo de Negocio</span>
+        </h1>
+        <p style="text-align: left">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat
+          dolores quos asperiores repellendus facilis cum illo aperiam odit
+          doloremque nostrum. Totam excepturi labore voluptatibus iusto sapiente
+          quisquam consectetur optio magnam voluptates omnis vel officia alias
+          distinctio quas laborum reiciendis ratione inventore veniam,
+          cupiditate doloribus dolore, eius natus a. Magni inventore
+          consequuntur voluptas reprehenderit perferendis! Molestias aspernatur
+          rem autem aut temporibus.
+        </p>
+        <div class="container_buttons_links_header">
+          <div class="btn">
+            <a
+              href="#"
+              class="btn btn-primary btn-lg mr-2"
+              ,
+              style="background-color: #007bff"
+              >Paper</a
+            >
+          </div>
+          <div class="btn">
+            <a
+              href="{{url_for('light_talk_app.light_talk_app_home')}}"
+              class="btn btn-primary btn-lg mr-2"
+              ,
+              style="background-color: #007bff"
+              >Light Talk App</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <img
+          src="{{url_for('static', filename='icons/business.svg')}}"
+          width="325"
+          height="325"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- business -->
+<section class="section_body_business">
+  <div class="container">
+    <div class="business" style="display: block">
+      <h1 style="text-align: center">Nuestro Modelo de Negocio</h1>
+      <p>Nuestro modelo de negocio está orientado a …</p>
+    </div>
+
+    <!--Enumerated list (table with two columns)-->
+    <div class="business">
+      <div class="box_table2" style="height: 200px">
+        <div class="h1 mb-3" style="text-align: center">
+          <i class="fa-solid fa-briefcase"></i>
+        </div>
+        <h4 style="text-align: center">Nuestro Canvas Business Model</h4>
+        <p class="text-left">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
+          tenetur.
+        </p>
+      </div>
+      <div class="box_table2" style="height: 200px">
+        <div class="h1 mb-3" style="text-align: center">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+        </div>
+        <h4 style="text-align: center">Nuestros Valores</h4>
+        <p class="text-left">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas,
+          quidem.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

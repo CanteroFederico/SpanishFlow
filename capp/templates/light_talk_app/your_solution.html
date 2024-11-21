@@ -1,0 +1,100 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="new_entry">
+  <div class="container">
+      <div class="box">
+
+      </div>
+      <div class="box">
+        {% if message=="No has añadido ninguna frase con ese objetivo y fuente. Por favor, añade una frase con ese objetivo y fuente para continuar." %}
+        No has añadido ninguna frase con ese objetivo <strong>({{objective}})</strong> y fuente <strong>({{source}})</strong>. Por favor, añade una frase con ese objetivo <strong>({{objective}})</strong> y fuente <strong>({{source}})</strong> para continuar.
+        <div class="section_container_buttons_light_talk_app_new_entry_main">
+            <a
+              class="btn_light_talk_app_new_entry_main"
+              href="{{url_for('light_talk_app.add_sentence')}}"
+              >Añadir</a
+            >
+        </div>
+        {% else %}
+        <div class="h1 mb-3" style="text-align: center;">
+            <i class="fa-solid fa-check-double"></i>
+        </div>
+        <h3>Escribe tu respuesta</h3>
+          <form method="POST" action="">
+              {{ form.csrf_token }}
+              <fieldset class="form-group">
+
+                <div class="form-group">
+                    {{ form.incorrect_sentence.label(class="form-control-label") }}
+                    {% if form.incorrect_sentence.errors %}
+                        {{ form.incorrect_sentence(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.incorrect_sentence.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.incorrect_sentence(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.your_sentence.label(class="form-control-label") }}
+                  {% if form.your_sentence.errors %}
+                      {{ form.your_sentence(class="form-control form-control-lg is-invalid") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.your_sentence.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.your_sentence(class="form-control form-control-lg") }}
+                  {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.objective.label(class="form-control-label") }}
+                    {% if form.objective.errors %}
+                        {{ form.objective(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.objective.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.objective(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.source.label(class="form-control-label") }}
+                  {% if form.source.errors %}
+                      {{ form.source(class="form-control form-control-lg is-invalid") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.source.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.source(class="form-control form-control-lg") }}
+                  {% endif %}
+                </div>
+
+              </fieldset>
+              </br>
+              <div class="form-group">
+                {{ form.submit(class="btn_light_talk_app_new_entry_main") }}
+              </div>
+          </form>
+        {% endif %}
+      </div>
+      <div class="box">
+
+      </div>
+  </div>
+</section> 
+
+        
+{% endblock content %}

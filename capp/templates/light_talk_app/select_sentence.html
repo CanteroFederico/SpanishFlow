@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="new_entry">
+  <div class="container">
+      <div class="box">
+
+      </div>
+      <div class="box">   
+        <div class="h1 mb-3" style="text-align: center;">
+          <i class="fa-solid fa-check-double"></i>
+        </div>
+        <h3>Selecciona una frase</h3>
+        <p>
+          Por favor, <strong>selecciona</strong> una frase a tu base de datos para
+              personalizar tu aprendizaje del castellano.
+        </p>
+          <form method="POST" action="">
+              {{ form.csrf_token }}
+              <fieldset class="form-group">
+
+                <div class="form-group">
+                    {{ form.objective.label(class="form-control-label") }}
+                    {% if form.objective.errors %}
+                        {{ form.objective(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.objective.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.objective(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.source.label(class="form-control-label") }}
+                  {% if form.source.errors %}
+                      {{ form.source(class="form-control form-control-lg is-invalid") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.source.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.source(class="form-control form-control-lg") }}
+                  {% endif %}
+                </div>
+
+              </fieldset>
+              </br>
+              <div class="form-group">
+                {{ form.submit(class="btn_light_talk_app_new_entry_main") }}
+              </div>
+          </form>
+      </div>
+      <div class="box">
+
+      </div>
+  </div>
+</section> 
+
+        
+{% endblock content %}
