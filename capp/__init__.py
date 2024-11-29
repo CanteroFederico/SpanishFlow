@@ -19,7 +19,7 @@ application.config['SECRET_KEY'] = 'c131b9e6952a36ead01aadafd3b500d3'
 DBVAR = f"postgresql://{os.environ['RDS_USERNAME']}:{os.environ['RDS_PASSWORD']}@{os.environ['RDS_HOSTNAME']}/{os.environ['RDS_DB_NAME']}"
 
 application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR 
-application.config['SQLALCHEMY_BINDS'] ={'sentence': DBVAR}
+
 db = SQLAlchemy(application)
 
 
