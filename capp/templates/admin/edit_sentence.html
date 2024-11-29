@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Edit Sentence</h2>
+
+<form method="POST">
+    <!-- English Sentence Field -->
+    <div class="form-group">
+        <label for="english_sentence">English Sentence</label>
+        <input type="text" class="form-control" name="english_sentence" id="english_sentence" value="{{ form.english_sentence.data }}" required>
+    </div>
+
+    <!-- Spanish Sentence Field -->
+    <div class="form-group">
+        <label for="spanish_sentence">Spanish Sentence</label>
+        <input type="text" class="form-control" name="spanish_sentence" id="spanish_sentence" value="{{ form.spanish_sentence.data }}" required>
+    </div>
+
+    <!-- Explanation (English) -->
+    <div class="form-group">
+        <label for="explanation_english">Explanation (English)</label>
+        <textarea class="form-control" name="explanation_english" id="explanation_english" required>{{ form.explanation_english.data }}</textarea>
+    </div>
+
+    <!-- Explanation (Spanish) -->
+    <div class="form-group">
+        <label for="explanation_spanish">Explanation (Spanish)</label>
+        <textarea class="form-control" name="explanation_spanish" id="explanation_spanish" required>{{ form.explanation_spanish.data }}</textarea>
+    </div>
+
+    <!-- Category Field -->
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select class="form-control" name="category" id="category" required>
+            <option value="">Select Category</option>
+            {% for cat_id, cat_name in form.category.choices %}
+                <option value="{{ cat_id }}" {% if cat_id == form.category.data %}selected{% endif %}>{{ cat_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Section Field (Dynamic based on category selection) -->
+    <div class="form-group">
+        <label for="section">Section</label>
+        <select class="form-control" name="section" id="section" required>
+            <option value="">Select Section</option>
+            {% for sec_id, sec_name in form.section.choices %}
+                <option value="{{ sec_id }}" {% if sec_id == form.section.data %}selected{% endif %}>{{ sec_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Image Path Field -->
+    <div class="form-group">
+        <label for="image_path">Image Path</label>
+        <input type="text" class="form-control" name="image_path" id="image_path" value="{{ form.image_path.data }}">
+    </div>
+    
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-success">Save Changes</button>
+</form>
+
+<a href="{{ url_for('admin_bp.view_sentences') }}" class="btn btn-secondary">Back to Sentences</a>
+<script>
+    document.getElementById("category").addEventListener("change", function() {
+        const categoryId = this.value;
+        const sectionDropdown = document.getElementById("section");
+        
+        // Clear existing options
+        sectionDropdown.innerHTML = '<option value="">Select Section</option>';
+
+        if (categoryId) {
+            fetch(`/get_sections/${categoryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);  // Add this line to see the sections being returned
+                    data.forEach(section => {
+                        const option = document.createElement("option");
+                        option.value = section.id;
+                        option.textContent = section.name;
+                        sectionDropdown.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching sections:', error));
+        }
+    });
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Font Awesome for Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+        crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/carbon_app.css') }}"/>
+
+    <!-- Page Title -->
+    <title>{{ title if title else "Random Sentence" }}</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <section class="structure_app_header">
+        <section class="structure_app_navbar_app_navbar">
+            <div class="app_navbar">
+                <a href="{{ url_for('spanishflow_app.spanishflow_app_home') }}" class="text-white text-decoration-none">
+                    <h1 class="logo">
+                        <i class="fa-solid fa-graduation-cap"></i> SpanishFlow
+                    </h1>
+                </a>
+                <h2 class="text-secondary">
+                    <a href="{{ url_for('spanishflow_app.section_app', category=sentence.category.name) }}" class="text-decoration-none">
+                        | {{ sentence.category.name }}
+                    </a>
+                </h2>
+            </div>
+        </section>
+        <!-- Main Header -->
+        <section class="main_app_header">
+            <section class="app_header">
+                <div class="container">
+                    <div class="header_sp">
+                        <div class="box">
+                            <h2 style="font-size: 30px;">
+                                <span class="text-logo">You are learning new ways of communication.</span>
+                            </h2>
+                            <div class="line"></div>
+                            <h2 style="font-size: 30px;">
+                                <span class="text-logo">Estás aprendiendo nuevas formas de comunicación.</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+
+    <!-- Sentence Section -->
+    <main class="section_student_choice">
+        <div class="student_choice cards d-flex flex-wrap justify-content-center">
+            <!-- Sentence Details -->
+            <div class="boxa">
+                <div class="phrase text-center">
+                    <div class="eng mb-3">
+                        <h2>English:</h2>
+                        <p>{{ sentence.english_sentence }}</p>
+                    </div>
+                    <div class="esp">
+                        <h2>Spanish:</h2>
+                        <p>{{ sentence.spanish_sentence }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Explanation Card -->
+            <div class="boxa">
+                <div class="pic" onclick="this.classList.toggle('flipped')">
+                    <div class="pic-inner">
+                        <!-- Front Image -->
+                        <div class="pic-front">
+                            <img src="{{ url_for('static', filename=sentence.image_path) }}" alt="Illustration">
+                        </div>                        
+                        <!-- Back Explanation -->
+                        <div class="pic-back">
+                            <div class="eng_box">
+                                <h2>Explanation:</h2>
+                                <p>{{ sentence.explanation_english }}</p>
+                            </div>
+                            <div class="esp_box">
+                                <h2>Explicación:</h2>
+                                <p>{{ sentence.explanation_spanish }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navigation and Actions -->
+    <footer class="section_btn_main">
+        <div class="btn_main">
+            <!-- Previous Button -->
+            <div class="boxb">
+                <a href="{{ url_for('spanishflow_app.previous_sentence', section_id=sentence.section_id, sentence_id=sentence.id) }}" class="btn btn-outline-primary mx-2">
+                    <i class="fa-solid fa-less-than"></i> <h3>Previous</h3>
+                </a>
+            </div>
+            <!-- Shuffle Button -->
+            <div class="boxb">
+                <a href="{{ url_for('spanishflow_app.shuffle_sentence', section_id=sentence.section_id) }}" class="btn btn-outline-secondary mx-2">
+                    <i class="fa-solid fa-shuffle"></i> <h3>Shuffle</h3>
+                </a>
+            </div>
+            <!-- Mark as Learned Button -->
+            <div class="boxb">
+                <form id="learned-form" method="POST" action="{{ url_for('spanishflow_app.mark_sentence_as_learned', sentence_id=sentence.id) }}">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa-solid fa-check"></i> <h3>Mark as Learned</h3>
+                    </button>
+                </form>
+            </div>
+            <!-- Next Button -->
+            <div class="boxb">
+                <a href="{{ url_for('spanishflow_app.next_sentence', section_id=sentence.section_id, sentence_id=sentence.id) }}" class="btn btn-outline-primary mx-2">
+                    <h3>Next</h3> <i class="fa-solid fa-greater-than"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+
+    <!-- Scripts -->
+    <script>
+        document.getElementById('learned-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default submission
+            const form = event.target;
+            const actionUrl = form.action;
+
+            fetch(actionUrl, { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert(data.message);
+                        // Update UI to reflect learned status
+                        form.querySelector('button').classList.replace('btn-success', 'btn-secondary');
+                        form.querySelector('button').disabled = true;
+                        form.querySelector('button').innerHTML = '<i class="fa-solid fa-check"></i> Learned';
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An unexpected error occurred.');
+                });
+        });
+    </script>
+</body>
+</html>

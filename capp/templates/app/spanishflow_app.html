@@ -1,0 +1,51 @@
+{% extends "/layout.html" %}
+{% block content %}
+<section class="body_app">
+    <section class="section_header_sp">
+        <div class="container">
+            <div class="header_sp">
+                <div class="box">
+                    <h2 style="font-size: 30px;"><span class="text-logo">Hello {{ username }}</span></h2>
+                    <div class="line"></div>
+                    <h2 style="font-size: 30px;"><span class="text-logo">Hola {{ username }}</span></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_options_app"> 
+        <section class="section_options">
+            <div class="container">
+                <div class="Our_team">
+                    <h2>Are you here as a:</h2>
+                </div>
+                <div class="options">
+                    <div class="box1">
+                        <a href="{{ url_for('spanishflow_app.section_app', category='Tourist') }}">
+                            <div class="dev1">
+                                <img src="{{url_for('static', filename='icons/fotos/salamanca.jpg')}}" class="op1">
+                                <h3 class="text-top">Tourist</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="box1">
+                        <a href="{{ url_for('spanishflow_app.section_app', category='Student') }}">
+                            <div class="dev2">
+                                <img src="{{url_for('static', filename='icons/fotos/student.jpg')}}" class="op1">
+                                <h3 class="text-top">Student</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="box1">
+                        <a href="{{ url_for('spanishflow_app.section_app', category='Professional') }}">
+                            <div class="dev3">
+                                <img src="{{url_for('static', filename='icons/fotos/professional.jpg')}}" class="op1">
+                                <h3 class="text-top">Professional</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>
+{% endblock content %}

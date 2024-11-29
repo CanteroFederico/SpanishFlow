@@ -1,0 +1,111 @@
+/* 
+#59c0f2 light blue
+#000127 Dark dark blue
+#206ad9  blue
+#00247d Light dark blue
+#9e6119 Golden brown
+#d18828 Golden tan 
+*/
+/* Style for the dashboard counters to align them in one line */
+.section_dashboard{
+margin-left: 10px;
+margin-right: 10px;
+padding-left: 20px;
+padding-right: 20px;
+}
+.dashboard_header{
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+
+}
+.dashboard_main_counters{
+justify-content: center;
+}
+
+.dashboard-counters {
+width: 100%;
+background-color: #59c0f2;
+display: flex;
+border-radius: 10px;
+justify-content: space-evenly;
+}
+
+.dashboard-counters li {
+font-size: 18px;
+font-weight: 600;
+color: #000127;
+}
+
+/* Style for the Manage Content boxes to display side by side */
+.dashboard_manage_content{
+text-align: center;
+padding-top: 5px;
+color: #000127;
+}
+.dashboard_manage_content .text{
+    background-color: #59c0f2;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: -10px;
+}
+
+.dashboard_main_counters h3{
+text-decoration: underline #59c0f2;
+}
+
+.manage-content-links {
+display: flex;
+justify-content: space-between;
+margin: 20px 0;
+}
+
+.link-box {
+background-color: #59c0f2;
+border-radius: 10px;
+padding: 20px;
+width: 49.5%;  /* Ensures both boxes fit side by side with some space between */
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.link-box a {
+display: block;
+color: #00247d;
+font-size: 24px;
+margin-bottom: 10px;
+font-weight: 500;
+text-decoration: none;
+text-align: center;
+}
+
+.link-box a:hover {
+color: #fff;
+}
+
+.dashboard_user{
+text-align: center;
+background-color: #59c0f2;
+padding: 5px;
+border-radius: 10px;
+}
+
+.dashboard_user h3{
+    color: #000127;
+    font-weight: 700;
+}
+.dashboard_user a{
+    font-size: 24px;
+    font-weight: 500;
+    color: #00247d ;
+}
+.dashboard_user a:hover{
+    color: #fff ;
+}
+.logout a{
+    font-weight: 700;
+    font-size: 20px;
+    color: antiquewhite;
+}
+.logout a:hover{
+    color: #000127;
+}

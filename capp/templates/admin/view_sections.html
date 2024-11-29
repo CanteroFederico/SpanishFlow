@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Sections</h2>
+
+<form method="GET" action="{{ url_for('admin_bp.view_sections') }}">
+    <div class="form-group">
+        <label for="category_filter">Filter by Category</label>
+        <select name="category_id" id="category_filter" class="form-control" onchange="this.form.submit()">
+            <option value="">All Categories</option>
+            {% for category in categories %}
+                <option value="{{ category.id }}" {% if category.id == selected_category_id|int %}selected{% endif %}>
+                    {{ category.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Section Name</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+            {% for section in category.sections %}
+            <tr>
+                <td>{{ section.name }}</td>
+                <td>{{ category.name }}</td>
+                <td>
+                    <a href="{{ url_for('admin_bp.edit_section', section_id=section.id) }}" class="btn btn-primary">Edit</a>
+                    <form action="{{ url_for('admin_bp.delete_section', section_id=section.id) }}" method="POST">
+                        <button type="submit" class="btn btn-danger">Delete Section</button>
+                    </form>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('admin_bp.admin_dashboard') }}">Back to Dashboard</a>
+
+{% endblock %}

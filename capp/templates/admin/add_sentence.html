@@ -1,0 +1,80 @@
+{% extends 'admin/layout.html' %}
+
+{% block content %}
+<h2>Add Sentence</h2>
+
+<form method="POST" action="{{ url_for('admin_bp.add_sentence') }}">
+    {{ form.hidden_tag() }}
+    
+    <div class="form-group">
+        {{ form.english_sentence.label }}
+        {{ form.english_sentence(class='form-control') }}
+    </div>
+
+    <div class="form-group">
+        {{ form.spanish_sentence.label }}
+        {{ form.spanish_sentence(class='form-control') }}
+    </div>
+
+    <div class="form-group">
+        {{ form.explanation_english.label }}
+        {{ form.explanation_english(class='form-control') }}
+    </div>
+
+    <div class="form-group">
+        {{ form.explanation_spanish.label }}
+        {{ form.explanation_spanish(class='form-control') }}
+    </div>
+
+    <div class="form-group">
+        {{ form.image_path.label }}
+        {{ form.image_path(class='form-control') }}
+    </div>
+
+    <div class="form-group">
+        {{ form.category.label }}
+        {{ form.category(class='form-control') }}
+    </div>
+
+    <div class="form-group">
+        {{ form.section.label }}
+        {{ form.section(class='form-control') }}
+    </div>
+
+    <div class="form-group">
+        {{ form.submit(class='btn btn-primary') }}
+    </div>
+</form>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var categorySelect = document.querySelector('select[name="category"]');
+        var sectionSelect = document.querySelector('select[name="section"]');
+
+        // Trigger function when category is selected
+        categorySelect.addEventListener('change', function () {
+            var categoryId = this.value;
+            
+            // Clear the existing sections
+            sectionSelect.innerHTML = '<option value="">Select Section</option>';
+
+            if (categoryId) {
+                // Fetch sections based on category
+                fetch('/get_sections/' + categoryId)
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(section => {
+                            var option = document.createElement('option');
+                            option.value = section.id;
+                            option.textContent = section.name;
+                            sectionSelect.appendChild(option);
+                        });
+                    });
+            }
+        });
+    });
+</script>
+
+<a href="{{ url_for('admin_bp.admin_dashboard') }}">Back to Dashboard</a>
+
+{% endblock %}

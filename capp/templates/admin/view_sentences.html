@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Sentences</h2>
+
+<form method="GET" action="{{ url_for('admin_bp.view_sentences') }}">
+    <div class="form-group">
+        <label for="category_filter">Filter by Category</label>
+        <select name="category_id" id="category_filter" class="form-control" onchange="this.form.submit()">
+            <option value="">All Categories</option>
+            {% for category in categories %}
+                <option value="{{ category.id }}" {% if category.id == selected_category_id|int %}selected{% endif %}>
+                    {{ category.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    {% if sections %}
+    <div class="form-group">
+        <label for="section_filter">Filter by Section</label>
+        <select name="section_id" id="section_filter" class="form-control" onchange="this.form.submit()">
+            <option value="">All Sections</option>
+            {% for section in sections %}
+                <option value="{{ section.id }}" {% if section.id == selected_section_id|int %}selected{% endif %}>
+                    {{ section.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>English Sentence</th>
+            <th>Spanish Sentence</th>
+            <th>Explanation (English)</th>
+            <th>Explanation (Spanish)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sentence in sentences %}
+        <tr>
+            <td>{{ sentence.english_sentence }}</td>
+            <td>{{ sentence.spanish_sentence }}</td>
+            <td>{{ sentence.explanation_english }}</td>
+            <td>{{ sentence.explanation_spanish }}</td>
+            <td>
+                <a href="{{ url_for('admin_bp.edit_sentence', sentence_id=sentence.id) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ url_for('admin_bp.delete_sentence', sentence_id=sentence.id) }}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('admin_bp.admin_dashboard') }}">Back to Dashboard</a>
+
+{% endblock %}

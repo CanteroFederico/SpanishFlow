@@ -1,0 +1,26 @@
+{% extends "/admin/layout.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2>Add a Section</h2>
+        <form method="POST" action="{{ url_for('admin_bp.add_section') }}">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.section_name.label }}
+                {{ form.section_name(class='form-control') }}
+            </div>
+            <div class="form-group">
+                {{ form.category.label }}
+                {{ form.category(class='form-control') }}
+            </div>
+            <div class="form-group">
+                <label for="icon">Font Awesome Icon Class</label>
+                <input type="text" id="icon" name="icon" class="form-control" placeholder="e.g., fa-solid fa-book">
+            </div>
+            <div class="form-group">
+                {{ form.submit(class='btn btn-primary') }}
+            </div>
+        </form>
+        <a href="{{ url_for('admin_bp.admin_dashboard') }}">Back to Dashboard</a>
+    </div>
+{% endblock %}

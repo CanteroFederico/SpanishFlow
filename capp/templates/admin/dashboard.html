@@ -1,0 +1,45 @@
+{% extends "/admin/layout.html" %}
+{% block content %}
+<section class="section_dashboard">
+    <div class="dashboard_header">
+        <h1>Welcome, {{ username }}</h1>
+
+    </div>
+    <div class="dashboard_main_counters">
+        <ul class="dashboard-counters">
+            <li>Categories: {{ categories_count }}</li>
+            <li>Sections: {{ sections_count }}</li>
+            <li>Sentences: {{ sentences_count }}</li>
+        </ul>
+    </div>
+    <div class="dashboard_manage_content">
+        <div class="text">
+            <h3>Manage Content</h3>
+        </div>
+        <div class="manage-content-links">
+            <div class="link-box">
+                <a href="{{ url_for('admin_bp.add_category') }}">Add Category</a><br>
+                <a href="{{ url_for('admin_bp.add_section') }}">Add Section</a><br>
+                <a href="{{ url_for('admin_bp.add_sentence') }}">Add Sentence</a><br>
+            </div>
+            <div class="link-box">
+                <a href="{{ url_for('admin_bp.categories') }}">View Categories</a><br>
+                <a href="{{ url_for('admin_bp.view_sections') }}">View Sections</a><br>
+                <a href="{{ url_for('admin_bp.view_sentences') }}">View Sentences</a><br>
+            </div>
+        </div>
+    </div>
+    <!-- User Management -->
+    <div class="dashboard_user">
+        <h3>User Management</h3>
+        <a href="{{ url_for('admin_bp.manage_users') }}">- Manage Users</a>
+    </div>
+    <br>
+    <br>
+    <!-- Logout -->
+    <div class="logout">
+        <a href="{{ url_for('admin_bp.logout') }}">Logout</a><br>
+    </div>
+</section>
+<br>
+{% endblock %}

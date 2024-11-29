@@ -1,0 +1,17 @@
+{% extends "/admin/layout.html" %}
+{% block content %}
+
+    <div class="container">
+        <h2>Add a New Category</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label for="name">Category Name</label>
+                {{ form.name(class="form-control", id="name", placeholder="Enter category name") }}
+            </div>
+            <button type="submit" class="btn btn-primary">Add Category</button>
+        </form>
+        <a href="{{ url_for('admin_bp.admin_dashboard') }}">Back to Dashboard</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+box-sizing: border-box;
+padding: 0px;
+margin: 0px;
+}
+/* 
+#59c0f2 light blue
+#000127 Dark dark blue
+#206ad9  blue
+#00247d Light dark blue
+#9e6119 Golden brown
+#d18828 Golden tan 
+*/
+body{
+font-family: "Poppins";
+line-height: 1.5;
+background-color: #59c0f5;
+}
+.container {
+margin: 0px;
+max-width: 100%;
+}
+ul {
+list-style: none;
+font-size: 400;
+}
+a {
+color: #fff;
+text-decoration: none;
+}
+h1{
+    font-weight: 800;
+    color: #fff;
+}
+h2 {
+font-weight: 400;
+line-height: 1.2;
+color: #fff;
+
+}
+p {
+margin: 10px 0;
+font-size: 14px;
+}
+img {
+width: 100%;
+}
+/* navbar */
+.structure_app_navbar_app_navbar {
+    background-color: #000127;
+    padding-top: 20px;
+}
+.structure_app_navbar_app_navbar  .app_navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 50px;
+    align-items: center;
+    background-color: #000127;
+    padding: 20px 0px;
+    margin: 0px 20px;
+}
+.structure_app_navbar_app_navbar  .app_navbar a {
+    color: whitesmoke;
+    padding: 30px 20px;
+    margin: 0px 5px;
+    text-decoration: none;
+    font-weight: 400;
+}
+.structure_app_navbar_app_navbar  .app_navbar h2{
+    margin-left: -30px;
+    font-weight: 400;
+}
+.structure_app_navbar_app_navbar  .app a:hover{
+    border-bottom: #206ad9 4px solid;
+}
+.structure_app_navbar_app_navbar  .app_navbar ul {
+    display: flex;
+    flex-direction: row;
+}
+.app_navbar .logo {
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+
+/*Header*/
+.app_header {
+    background-color: #000127;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.header_sp {
+    display: flex;
+    align-items: center;
+}
+.header_sp .box{
+    display: inline-block;
+    border-radius: 10px;
+    margin: 10px 10px;
+    padding: 15px 10px;
+    text-align: left;
+    align-items: left;
+    justify-content: left;
+    color: #fff;
+}
+.header_sp .line {
+    background-color: grey;
+    height: 4px;
+    width: 106%;
+    margin:10px -6px;
+    color: grey;
+}
+.text-logo {
+    width: 200px;
+}
+.section_header_student_main {
+    background-color: #59c0f2;
+}
+
+/* 
+#59c0f2 light blue
+#000127 Dark dark blue
+#206ad9  blue
+#00247d Light dark blue
+#9e6119 Golden brown
+#d18828 Golden tan 
+*/
+
+.section_student_choice {
+background-color: #59c0f2;
+margin: 10px 10px;
+}
+
+.cards {
+display: flex;
+color: #fff;
+margin: 0px 0px;
+background-color: #59c0f2;
+height: 500px;
+}
+.boxa {
+height: 500px;
+width: 50%;
+}
+.boxa h2{
+    text-align: left;
+}
+.boxa p{
+    text-align: center;
+    font-size: 30px;
+}
+.eng {
+height: 240px;
+background-color: #206ad9;
+margin: 10px 10px;
+border-radius: 30px;
+padding: 20px 20px;
+}
+.esp {
+height: 240px;
+background-color: #d18828;
+margin-top: 20px;
+margin-left: 10px;
+margin-right: 10px;
+border-radius: 30px;
+padding: 20px 20px;
+}
+
+.pic {
+  background-color: rgba(0, 1, 39, 0.6);
+  height: 500px;
+  width: auto;
+  margin: 10px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  position: relative;
+  cursor: pointer;     
+}
+
+.pic-inner {
+  width: 100%;
+  height: 100%;
+  transition: 0.1s;  
+  transform-style: preserve-3d; 
+  position: relative;
+}
+
+.pic.flipped .pic-inner {
+  transform: rotatex(180deg);  
+}
+
+.pic-front, .pic-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-start;  
+  align-items: center;  
+  color: white;
+  text-align: center;
+}
+
+.pic-front {
+  background-color: #333;  
+  border-radius: 30px;
+}
+
+.pic-front img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;   
+  border-radius: 30px; 
+}
+
+.pic-back {
+  background-color: rgba(0, 1, 39, 0.6);
+  transform: rotatex(180deg); 
+  border-radius: 30px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  padding: 20px;
+}
+
+.pic-back h2 {
+  margin-top: 20px;  
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
+
+.pic-back p {
+  flex-grow: 1;  
+  font-size: 30px;
+}
+
+
+
+/* Centering the buttons in the footer (Flex layout) */
+.section_btn_main .btn_main {
+    display: flex; /* Align the buttons in a row */
+    justify-content: space-between; /* Ensure equal spacing between buttons */
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px; /* Add some top margin to separate the buttons from content */
+    width: 100%; /* Make sure buttons span full width */
+}
+
+/* Style for each button box inside the footer */
+.section_btn_main .btn_main .boxb {
+    background-color: #000127;
+    color: aliceblue;
+    border-radius: 10px;
+    padding: 5px 0px; /* Adjust padding to fit within a row */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    flex-grow: 1; /* Make each button take equal space */
+    min-width: 150px; /* Optional: Set a minimum width if needed */
+    position: relative; /* Allows absolute positioning inside the box */
+}
+
+/* Make the <a> tag fill the entire .boxb container in the footer */
+.section_btn_main .btn_main .boxb a,
+.section_btn_main .btn_main .boxb button {
+    display: flex;
+    color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Make the <a> or <button> fill the entire box */
+    height: 100%; /* Ensure it takes the full height of the box */
+    text-decoration: none; /* Remove any default text decorations */
+    border: none; /* Remove any default button border */
+    background-color: transparent; /* Ensure the background is transparent */
+}
+
+/* Hover effect for the button box in the footer */
+.section_btn_main .btn_main .boxb:hover {
+    background-color: #d18828;
+    color: #fff;
+}
+
+/* Style for icons inside buttons in the footer */
+.section_btn_main .btn_main .boxb i {
+    font-size: 20px; /* Adjust the size of the icon */
+    margin-right: 8px; /* Space between the icon and text */
+    color: whitesmoke; /* Set the icon color to match the text */
+    display: inline-block;
+    vertical-align: middle; /* Vertically center the icon */
+}
+
+/* Style for the text inside the button box in the footer */
+.section_btn_main .btn_main .boxb h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    color: whitesmoke; /* Set the color of the text */
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle; /* Vertically center the text */
+    margin-right: 10px;
+}
+
+/* Footer container */
+footer {
+    background-color: #59c0f2; /* Light gray background for the footer */
+    text-align: center; /* Center align footer content */
+    width: 100%;
+    position: relative;
+}
+
+/* Optional: Style adjustments for responsive layout */
+@media (max-width: 768px) {
+    .footer-btn-container .btn .boxb {
+        width: 100%; /* Make the buttons stack on smaller screens */
+        margin-bottom: 10px; /* Space between buttons */
+    }
+}
