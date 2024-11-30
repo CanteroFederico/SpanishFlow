@@ -26,7 +26,7 @@ db = SQLAlchemy(application)
 # Flask app configuration
 #DBVAR = 'sqlite:///user.db'
 #application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR  # Principal base de datos (sentences)
-#application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Deshabilitar seguimiento de modificaciones
+application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Deshabilitar seguimiento de modificaciones
 
 
 
