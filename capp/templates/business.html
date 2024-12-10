@@ -9,23 +9,12 @@
           <span class="text-logo"> Modelo de Negocio</span>
         </h1>
         <p style="text-align: left">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat
-          dolores quos asperiores repellendus facilis cum illo aperiam odit
-          doloremque nostrum. Totam excepturi labore voluptatibus iusto sapiente
-          quisquam consectetur optio magnam voluptates omnis vel officia alias
-          distinctio quas laborum reiciendis ratione inventore veniam,
-          cupiditate doloribus dolore, eius natus a. Magni inventore
-          consequuntur voluptas reprehenderit perferendis! Molestias aspernatur
-          rem autem aut temporibus.
+          
+          El modelo de negocio de SpanishFlow se centra en la enseñanza del español coloquial mediante una plataforma interactiva gratuita, complementada con eventos culturales presenciales y virtuales. Genera ingresos a través de colaboraciones con empresas locales, integrando sus productos en el contenido educativo y eventos personalizados. Esta combinación de aprendizaje digital inmersivo y prácticas culturales ofrece una solución única para turistas, estudiantes y profesionales que buscan integrarse al entorno hispanohablante. Con un enfoque en la innovación y sostenibilidad, SpanishFlow apunta a liderar el nicho del aprendizaje práctico del idioma, destacándose frente a plataformas tradicionales.
         </p>
         <div class="container_buttons_links_header">
           <div class="btn">
-            <a
-              href="#"
-              class="btn btn-primary btn-lg mr-2"
-              ,
-              style="background-color: #007bff"
-              >Paper</a
+            <a href="{{ url_for('static', filename='/icons/trabajo.pdf') }}"class="btn btn-primary btn-lg mr-2"style="background-color: #007bff"target="_blank">Paper</a
             >
           </div>
           <div class="btn">
@@ -34,7 +23,7 @@
               class="btn btn-primary btn-lg mr-2"
               ,
               style="background-color: #007bff"
-              >Light Talk App</a
+              >SpanishFLow App</a
             >
           </div>
         </div>
@@ -56,33 +45,37 @@
   <div class="container">
     <div class="business" style="display: block">
       <h1 style="text-align: center">Nuestro Modelo de Negocio</h1>
-      <p>Nuestro modelo de negocio está orientado a …</p>
+      <p>Nuestro modelo de negocio está orientado al español colquial:</p>
     </div>
 
     <!--Enumerated list (table with two columns)-->
     <div class="business">
-      <div class="box_table2" style="height: 200px">
+      <div class="box_table2" style="height: 240px">
         <div class="h1 mb-3" style="text-align: center">
           <i class="fa-solid fa-briefcase"></i>
         </div>
-        <h4 style="text-align: center">Nuestro Canvas Business Model</h4>
+        <h4 style="text-align: center">La Empresa</h4>
         <p class="text-left">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
-          tenetur.
+          El Canvas, Organigrama y Dafo de la Empresa
         </p>
+        <a href="{{ url_for('static', filename='/icons/canvas.pdf') }}"class="btn btn-primary btn-lg mr-2"style="background-color: #007bff"target="_blank">Canvas y mas.</a
+          > 
       </div>
-      <div class="box_table2" style="height: 200px">
+      <div class="box_table2" style="height: 240px">
         <div class="h1 mb-3" style="text-align: center">
-          <i class="fa-solid fa-hand-holding-heart"></i>
+          <i class="fa-solid fa-file-powerpoint"></i>
         </div>
-        <h4 style="text-align: center">Nuestros Valores</h4>
+        <h4 style="text-align: center">Nuestra Presentación</h4>
         <p class="text-left">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas,
-          quidem.
+          La Presentación Final de SpanishFlow.
         </p>
+        <a href="{{ url_for('static', filename='/icons/slides.pdf') }}"class="btn btn-primary btn-lg mr-2"style="background-color: #007bff"target="_blank">Slides</a
+          > 
       </div>
     </div>
   </div>
+</div>
+<br>
 </section>
 
 {% endblock content %}
